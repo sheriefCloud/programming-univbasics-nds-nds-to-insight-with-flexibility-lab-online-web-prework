@@ -21,7 +21,7 @@ def flatten_a_o_a(aoa)
 end
 
 def movie_with_director_name(director_name, movie_data)
-  { 
+  {
     :title => movie_data[:title],
     :worldwide_gross => movie_data[:worldwide_gross],
     :release_year => movie_data[:release_year],
@@ -48,6 +48,14 @@ def movies_with_director_key(name, movies_collection)
   # Array of Hashes where each Hash represents a movie; however, they should all have a
   # :director_name key. This addition can be done by using the provided
   # movie_with_director_name method
+
+  array = []
+  movie_index = 0
+  while movie_index < movies_collection.size do
+    array << movie_with_director_name(name,movies_collection[movie_index])
+    movie_index += 1
+  end
+  array
 end
 
 
