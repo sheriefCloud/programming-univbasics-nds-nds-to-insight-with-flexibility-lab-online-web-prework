@@ -45,31 +45,29 @@ end #PASSED
 
 
 def gross_per_studio(collection)
-  # GOAL: Given an Array of Hashes where each Hash represents a movie,
-  # return a Hash that includes the total worldwide_gross of all the movies from
-  # each studio.
-  #
-  # INPUT:
-  # * collection: Array of Hashes where each Hash where each Hash represents a movie
-  #
-  # RETURN:
-  #
-  # Hash whose keys are the studio names and whose values are the sum
-  # total of all the worldwide_gross numbers for every movie in the input Hash
+  studios_gross = {}
+  
+  index = 0
+  while index < collection.size do
+	c_movie = collection[index]
+	c_studio = c_movie[:studio]
+	c_movie_gross = c_movie[:worldwide_gross]
+
+      if !studios_gross[c_studio]
+        puts "DidNot Find IT"
+        studios_gross[c_studio] = c_movie_gross
+			else
+        puts "FOUND IT and the current values are #{studios_gross}"
+				studios_gross[c_studio] += c_movie_gross
+      puts "after running the routine #{studios_gross}"
+			end
+
+	index += 1
+studios_gross
+
 end
 
-def movies_with_directors_set(source)
-  #binding.pry
-  # GOAL: For each director, find their :movies Array and stick it in a new Array
-  #
-  # INPUT:
-  # * source: An Array of Hashes containing director information including
-  # :name and :movies
-  #
-  # RETURN:
-  #
-  # Array of Arrays containing all of a director's movies. Each movie will need
-  # to have a :director_name key added to it.
+
   def movies_with_directors_set(source)
   array = []
   level1_index = 0
@@ -87,7 +85,7 @@ def movies_with_directors_set(source)
   array
 end
 
-end
+
 
 # ----------------    End of Your Code Region --------------------
 # Don't edit the following code! Make the methods above work with this method
