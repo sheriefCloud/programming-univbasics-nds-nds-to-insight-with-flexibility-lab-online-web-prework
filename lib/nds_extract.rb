@@ -46,7 +46,7 @@ end #PASSED
 
 def gross_per_studio(collection)
   studios_gross = {}
-  
+
   index = 0
   while index < collection.size do
 	c_movie = collection[index]
